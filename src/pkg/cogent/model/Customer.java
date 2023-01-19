@@ -1,4 +1,7 @@
 package pkg.cogent.model;
+
+import java.util.Date;
+
 /**
  * 
  * @author: William U. Amaechi
@@ -10,13 +13,13 @@ public class Customer {
 	private String cID;		//	Customer ID
 	private String cName;	//	Customer Name
 	private String cEmail;	//	Customer Email
-	private String cDOB;	//	Customer Date of Birth
+	private Date cDOB;	//	Customer Date of Birth
 	
 	public Customer() {
 		
 	}
 	
-	public Customer(String cID, String cName, String cEmail, String cDOB) {
+	public Customer(String cID, String cName, String cEmail, Date cDOB) {
 		super();
 		this.cID = cID;
 		this.cName = cName;
@@ -49,10 +52,10 @@ public class Customer {
 	}
 	
 	//	Customer DoB Getter and Setter
-	public String getcDOB() {
+	public Date getcDOB() {
 		return cDOB;
 	}
-	public void setcDOB(String cDOB) {
+	public void setcDOB(Date cDOB) {
 		this.cDOB = cDOB;
 	}
 		

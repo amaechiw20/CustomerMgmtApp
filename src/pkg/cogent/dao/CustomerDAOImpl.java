@@ -49,11 +49,13 @@ public class CustomerDAOImpl implements CustomerDAO{ // Implementation of
 	@Override
 	public void read() {
 		for(Customer cust : customers) {
-			System.out.println("Customer ID: " +  cust.getcID());
-			System.out.println("Customer Name: " + cust.getcName());
-			System.out.println("Customer E-mail: " + cust.getcEmail());
-			if(cust.getcDOB() != null) {
-				System.out.println("Customer DOB: " + cust.getcDOB());
+			if (cust != null) {
+				System.out.println("Customer ID: " +  cust.getcID());
+				System.out.println("Customer Name: " + cust.getcName());
+				System.out.println("Customer E-mail: " + cust.getcEmail());
+				if(cust.getcDOB() != null) {
+					System.out.println("Customer DOB: " + cust.getcDOB());
+				}
 			}
 		}
 	}
@@ -61,24 +63,61 @@ public class CustomerDAOImpl implements CustomerDAO{ // Implementation of
 	@Override
 	public void update(String customerID) {
 		System.out.println("Updating Customer Name and Email.");
-		for(Customer cust : customers) {
-			if(cust.getcID().equals(customerID)) {
-				System.out.println("New Customer Name: ");
-				String newName = sc.next();
-				cust.setcName(newName);
-				System.out.println("New Customer Email: ");
-				String newEmail = sc.next();
-				cust.setcEmail(newEmail);
+		String response;
+		boolean notFound = true;
+		for(int i = 0; i < customers.length; i++) {
+			if(customers[i].getcID().equals(customerID)) {
+				notFound = false;
+				System.out.println("Update Customor Name?");
+				response = sc.next().toLowerCase();
+				switch(response) {
+				case "y" :
+				case "yes":
+				{
+					System.out.println("New Customer Name: ");
+					String newName = sc.next();
+					customers[i].setcName(newName);
+				}
+				case "n" :
+				case "no":
+				{
+					System.out.println("Update Customor Name?");
+					response = sc.next().toLowerCase();
+					switch(response) {
+					case "y" :
+					case "yes":
+					{
+						System.out.println("New Customer Email: ");
+						String newEmail = sc.next();
+						customers[i].setcEmail(newEmail);
+					}
+					case "n" :
+					case "no":
+					{
+						System.out.println("Nothing was updated");
+					}
+					}
+				}
+				}
 			}
 		}
-
-
+		if(notFound) {
+			System.out.println("No Customer of ID: " + customerID + " was found.");
+		}
 	}
 
 	@Override
 	public void delete(String customerID) {
-		// TODO Auto-generated method stub
-
+		System.out.println("Deleting Customer Name and Email.");
+		boolean notFound = true;
+		for(int i = 0; i < customers.length; i++) {
+			if(customers[i].getcID().equals(customerID)) {
+				customers[i] = null;
+			}
+		}
+		if(notFound) {
+			System.out.println("No Customer of ID: " + customerID + " was found.");
+		}
 	}
 
 	@Override

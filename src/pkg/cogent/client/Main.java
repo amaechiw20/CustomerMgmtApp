@@ -27,7 +27,7 @@ public class Main {
 			
 			choice = sc.nextInt();
 			cc.accept(choice);
-		} while (choice != 5);
+		} while (choice != 7);
 		sc.close();
 	}
 }
