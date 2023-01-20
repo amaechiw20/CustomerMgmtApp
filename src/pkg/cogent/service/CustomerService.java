@@ -13,26 +13,26 @@ public class CustomerService {
 	}
 	
 	public void save() {
-		dao.create();
+		dao.create();		// Calls the DAOImpl to create the Customer Array
 	}
 	
 	public void fetch() {
-		dao.read();
+		dao.read();			// Calls the DAOImpl to read all Customer info. in the Customer Array
 	}
 	
 	public void modify(String cID) {
-		dao.update(cID);
+		dao.update(cID);	// Calls the DAOImpl to update a Customer in the Customer Array
 	}
 	
 	public void delete(String cID) {
-		dao.delete(cID);
+		dao.delete(cID);	// Calls the DAOImpl to delete a Customer the Customer Array
 	}
 	
 	public void findCustomerByID(String cID) {
-		dao.findCustomerByID(cID);
+		dao.findCustomerByID(cID);	// Calls the DAOImpl to find a Customer in the Customer Array
 	}
 
 	public void findYoungestCustomer() {
-		dao.findYoungestCustomer();
+		dao.findYoungestCustomer();	//	Calls the DAOImple to find the Youngest Customer in Customer Array
 	}
 }

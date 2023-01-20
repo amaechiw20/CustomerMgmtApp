@@ -25,7 +25,7 @@ public class Main {
 			System.out.println("6 - Find the Youngest Customer in the Collection");
 			System.out.println("7 - Exit App");
 			
-			choice = sc.nextInt();
+			choice = sc.nextInt(); // Client inputs what they wish to do based on what number they enter
 			cc.accept(choice);
 		} while (choice != 7);
 		sc.close();
